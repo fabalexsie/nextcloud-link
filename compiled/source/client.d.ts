@@ -6,6 +6,10 @@ import { getCreatorByFileId, getCreatorByPath } from './common';
 import { configureOcsConnection } from './ocs/ocs';
 import { OcsSharePermissions, OcsEditUserField, OcsShareType, OcsNewUser, OcsUser } from './ocs/types';
 import { NextcloudClientProperties, NextcloudClientInterface, ConnectionOptions } from './types';
+import * as Helper from './helper';
+export declare const createNextCloudFileDetailProperty: typeof Helper.createNextCloudFileDetailProperty;
+export declare const createOwnCloudFileDetailProperty: typeof Helper.createOwnCloudFileDetailProperty;
+export declare const createFileDetailProperty: typeof Helper.createFileDetailProperty;
 export declare class NextcloudClient extends NextcloudClientProperties implements NextcloudClientInterface {
     configureWebdavConnection: typeof configureWebdavConnection;
     configureOcsConnection: typeof configureOcsConnection;

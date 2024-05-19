@@ -81,6 +81,12 @@ import {
 } from './types';
 import OcsConnection from './ocs/ocs-connection';
 
+import * as Helper from './helper';
+
+export const createNextCloudFileDetailProperty = Helper.createNextCloudFileDetailProperty;
+export const createOwnCloudFileDetailProperty = Helper.createOwnCloudFileDetailProperty;
+export const createFileDetailProperty = Helper.createFileDetailProperty;
+
 export class NextcloudClient extends NextcloudClientProperties implements NextcloudClientInterface {
   configureWebdavConnection = configureWebdavConnection;
   configureOcsConnection    = configureOcsConnection;
@@ -185,4 +191,10 @@ export class NextcloudClient extends NextcloudClientProperties implements Nextcl
 export default NextcloudClient;
 
 // Support default import syntax for Node and TS, and also a named export.
-module.exports = Object.assign(NextcloudClient, { NextcloudClient, default: NextcloudClient });
+module.exports = Object.assign(NextcloudClient, {
+  NextcloudClient,
+  default: NextcloudClient,
+  createNextCloudFileDetailProperty,
+  createOwnCloudFileDetailProperty,
+  createFileDetailProperty
+});
