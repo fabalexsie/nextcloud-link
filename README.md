@@ -1,3 +1,13 @@
+# Difference to the forked repository
+
+- added copy command
+- export createFileProperty-Helper
+
+> many thanks to the original authors
+
+
+
+
 # nextcloud-link ![npm](https://img.shields.io/npm/v/nextcloud-link?label=version)
 
 ![](https://github.com/tentwentyfour/nextcloud-link/workflows/Node.js%20CI/badge.svg)
