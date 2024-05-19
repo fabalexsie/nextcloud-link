@@ -12,6 +12,7 @@ declare function rawGetFolderFileDetails(sanePath: string, extraProperties?: Fil
 declare function rawGetFolderProperties(sanePath: string, extraProperties?: FileDetailProperty[]): Promise<FolderProperties>;
 declare function rawRename(saneFrom: string, newName: string): Promise<void>;
 declare function rawMove(saneFrom: string, toPath: string): Promise<void>;
+declare function rawCopy(saneFrom: string, toPath: string): Promise<void>;
 declare function rawGetWriteStream(sanePath: string): Promise<Webdav.Stream>;
 declare function rawTouchFolder(sanePath: string): Promise<void>;
 declare function rawCreateFolderHierarchy(sanePath: string): Promise<void>;
@@ -33,6 +34,7 @@ export declare const getFiles: typeof rawGetFiles;
 export declare const rename: typeof rawRename;
 export declare const remove: typeof rawRemove;
 export declare const move: typeof rawMove;
+export declare const copy: typeof rawCopy;
 export declare const exists: typeof rawExists;
 export declare const put: typeof rawPut;
 export declare const get: typeof rawGet;
