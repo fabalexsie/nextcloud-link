@@ -36,6 +36,7 @@ export interface NextcloudClientInterface extends NextcloudClientProperties {
   downloadToStream(sourcePath: string, writeStream: Stream.Writable):         Promise<void>;
   rename(fromFullPath: string, toFileName: string):                           Promise<void>;
   move(fromFullPath: string, toFullPath: string):                             Promise<void>;
+  copy(fromFullPath: string, toFullPath: string):                             Promise<void>;
   as(username: string, password: string):                                     NextcloudClientInterface;
   createFolderHierarchy(path: string):                                        Promise<void>;
   put(path: string, content: Webdav.ContentType):                             Promise<void>;

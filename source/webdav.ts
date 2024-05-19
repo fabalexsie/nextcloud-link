@@ -25,6 +25,7 @@ const sanitizePath = encodeURI;
 const promisifiedPut            = promisify(Webdav.Connection.prototype.put);
 const promisifiedGet            = promisify(Webdav.Connection.prototype.get);
 const promisifiedMove           = promisify(Webdav.Connection.prototype.move);
+const promisifiedCopy           = promisify(Webdav.Connection.prototype.copy);
 const promisifiedMkdir          = promisify(Webdav.Connection.prototype.mkdir);
 const promisifiedExists         = promisify(Webdav.Connection.prototype.exists);
 const promisifiedDelete         = promisify(Webdav.Connection.prototype.delete);
@@ -140,6 +141,15 @@ async function rawMove(saneFrom: string, toPath: string): Promise<void> {
   await promisifiedMove.call(self.webdavConnection, saneFrom, fullDestinationPath, override);
 }
 
+async function rawCopy(saneFrom: string, toPath: string): Promise<void> {
+  const self: NextcloudClientInterface = this;
+
+  const fullDestinationPath = `${nextcloudRoot(self.url, self.username)}${sanitizePath(toPath)}`;
+  const override            = true;
+
+  await promisifiedCopy.call(self.webdavConnection, saneFrom, fullDestinationPath, override);
+}
+
 async function rawGetWriteStream(sanePath: string): Promise<Webdav.Stream> {
   const self: NextcloudClientInterface = this;
 
@@ -225,6 +235,7 @@ export const getFiles              = clientFunction(rawGetFiles);
 export const rename                = clientFunction(rawRename);
 export const remove                = clientFunction(rawRemove);
 export const move                  = clientFunction(rawMove);
+export const copy                  = clientFunction(rawCopy);
 export const exists                = clientFunction(rawExists);
 export const put                   = clientFunction(rawPut);
 export const get                   = clientFunction(rawGet);

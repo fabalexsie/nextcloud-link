@@ -18,6 +18,7 @@ import {
   remove,
   exists,
   move,
+  copy,
   put,
   get
 } from './webdav';
@@ -98,6 +99,7 @@ export class NextcloudClient extends NextcloudClientProperties implements Nextcl
   remove                    = remove;
   exists                    = exists;
   move                      = move;
+  copy                      = copy;
   put                       = put;
   get                       = get;
 
